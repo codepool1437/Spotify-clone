@@ -1,0 +1,251 @@
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+    height: 0;
+    overflow: hidden;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+.songList {
+    display: flex;
+    margin-top: 0px;
+    width: 100%;
+    padding: 0;
+    gap: 20px;
+    flex-direction: column;
+    counter-reset: song-counter;
+    /* Reset counter for list items */
+}
+
+.song {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    /* Center-align items vertically */
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    /* Optional: Adds a line between songs */
+    counter-increment: song-counter;
+    /* Increment the counter for each item */
+    background-color: rgb(20, 20, 20);
+}
+
+.song-info {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    /* Adjust gap between items */
+    flex-grow: 1;
+    /* Allow this section to take up available space */
+}
+
+.song-info img {
+    filter: invert(100%);
+}
+
+.song-number::before {
+    content: counter(song-counter) ". ";
+    /* Add number before each item */
+    font-weight: bold;
+    /* Make the number bold */
+    font-size: 14px;
+    /* Size of the decimal numbers */
+    color: rgb(251, 249, 249);
+    /* Color of the decimal numbers */
+    width: 10px;
+    /* Define the width */
+    display: inline-block;
+    /* Ensure proper spacing and alignment */
+    text-align: center;
+    /* Center-align the text */
+    margin-right: 15px;
+    /* Space between the number and the image */
+}
+
+.song-name {
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+    /* Stack song title and artist vertically */
+    gap: 5px;
+    /* Adjust gap between title and artist */
+}
+
+.song-name span {
+    display: block;
+    font-size: 14px;
+    /* Adjust font size if needed */
+    color: rgb(251, 249, 249);
+    /* Light text color for song details */
+}
+
+.song-name span:nth-child(2) {
+    font-size: 10px;
+    color: rgb(251, 249, 249);
+}
+
+.play {
+    display: flex;
+    align-items: center;
+    /* Center-align play details vertically */
+    gap: 10px;
+}
+
+.play_song {
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    border-radius: 100%;
+    background-color: rgb(36, 153, 36);
+    display: flex;
+    box-sizing: border-box;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+    /* Smooth transitions */
+}
+
+.play_song:hover {
+    width: 23px;
+    height: 23px;
+    padding: 5px;
+    background-color: rgb(54, 200, 54);
+}
+
+.play_song:active {
+    background-color: rgb(31, 140, 31);
+}
+
+.play_song:hover .play_song img {
+    filter: invert(0%);
+}
+
+.play_song img {
+    filter: invert(10%);
+    cursor: pointer;
+}
+
+.duration {
+    font-size: 14px;
+    /* Adjust font size if needed */
+    color: rgb(251, 249, 249);
+    /* Light text color for duration */
+}
+
+.music_player {
+    display: flex;
+    background-color: black;
+    opacity: 0;
+    visibility: hidden;
+    align-items: center;
+    justify-content: space-between;
+    height: 11vh;
+    z-index: 100;
+    position: relative;
+    bottom: -5px;
+    padding: 0px 50px;
+    /* Slide from below using translateY */
+    transform: translateY(100%); /* Start off-screen (below) */
+    transition: transform 0.5s ease, opacity 0.5s ease;  /* Smooth slide and fade-in */
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);  /* Slide up into view */
+}
+
+.song_card {
+    display: flex;
+    gap: 20px;
+    width: 250px;
+    overflow: hidden;
+}
+
+.song_card img {
+    filter: invert(100%);
+    width: 30px;
+}
+
+.song-name2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-name2 span:nth-child(1) {
+    font-size: 18px;
+    color: rgb(246, 244, 244);
+}
+.song-name2 span:nth-child(2) {
+    font-size: 12px;
+    color: rgb(150, 149, 149);
+    font-weight: 500;
+}
+.player-btn img{
+    filter: invert(70%);
+    width: 20px;
+}
+.player-btn{
+    display: flex;
+    gap: 30px;
+}
+.play-btn{
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    background-color: white;
+    border-radius:100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.play-btn img{
+    filter: invert(0);
+    width: 16px;
+}
+.play-bar{
+    width: 417px;
+    background-color: rgb(170, 168, 168);
+    border-radius: 20px;
+}
+.current-bar{
+    border: 2px solid white;
+    background-color: white;
+    width:0%;
+    transition: width 0.1s linear; /* Smooth transition of width */
+}
+.main-player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: 15px;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+.player_volume{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    /* background-color: aqua; */
+}
+.player_volume img{
+    filter: invert(100%);
+    width: 20px;
+}
+.volume-bar{
+    border: 2px solid white;
+    width: 100px;
+    border-radius: 20px;    
+}
